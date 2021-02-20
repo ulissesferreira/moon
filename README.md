@@ -1,5 +1,9 @@
 # 🌙 Moon
 
+![npm (scoped)](https://img.shields.io/npm/v/@ulissesferreira/moon)
+![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@ulissesferreira/moon)
+![NPM](https://img.shields.io/npm/l/@ulissesferreira/moon)
+
 A lightweight Vue 3 component library.
 
 When you are starting a new prototype you want to be able to develop features fast. We created this component library as a way for us to build products quickly without having to deal with complicated packages and a huge bundle sizes.
