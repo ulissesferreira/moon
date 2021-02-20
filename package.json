@@ -1,0 +1,36 @@
+{
+  "name": "@ulissesferreira/moon",
+  "version": "0.2.1",
+  "description": "🌙 A lightweight Vue 3 component library",
+  "repository": "https://github.com/ulissesferreira/moon.git",
+  "author": "Ulisses Ferreira <ulisses@hey.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/moon.umd.js",
+  "module": "./dist/moon.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/moon.es.js",
+      "require": "./dist/moon.umd.js"
+    }
+  },
+  "unpkg": "./dist/moon.umd.js",
+  "jsdelivr": "./dist/moon.umd.js",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs",
+    "build:library": "vite build",
+    "analyze": "vite build --config analyze.config.js",
+    "publish": "npm publish --access public"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "vite": "^2.0.1",
+    "vitepress": "^0.12.2"
+  }
+}
