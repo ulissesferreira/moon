@@ -1,6 +1,6 @@
 {
   "name": "@ulissesferreira/moon",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "🌙 A lightweight Vue 3 component library",
   "repository": "https://github.com/ulissesferreira/moon.git",
   "author": "Ulisses Ferreira <ulisses@hey.com>",
@@ -24,7 +24,10 @@
     "serve": "vitepress serve docs",
     "build:library": "vite build",
     "analyze": "vite build --config analyze.config.js",
-    "publish": "npm publish --access public"
+    "publish:library": "npm publish --access public"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.4",
