@@ -9,5 +9,5 @@ The button component is a simple customizable button.
 <Button label="test"/>
 
 <script setup>
-import { Button } from '../../src/index'
+import { Button } from '../../../src/index'
 </script>

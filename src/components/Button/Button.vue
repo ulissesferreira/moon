@@ -1,5 +1,10 @@
 <template>
-  <button type="button">{{ label }}</button> 
+  <button
+    class="c-Button"
+    type="button"
+  >
+    <span class="c-Button__label">{{ label }}</span>
+  </button>
 </template>
 <script>
 export default {
@@ -13,3 +18,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+.c-Button {
+  display: flex;
+}
+</style>

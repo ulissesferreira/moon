@@ -16,15 +16,17 @@ module.exports = {
         link: '/'
       },
       {
-        text: 'Components', 
+        text: 'Components',
         children: getComponents()
       }
     ]
   }
 }
-  
+
 function getComponents() {
   return [
-    { text: 'Button', link: '/guide/button'}
+    { text: 'Button', link: '/guide/button/button'},
+    { text: 'Switch', link: '/guide/switch/switch'},
+    { text: 'Tooltip', link: '/guide/tooltip/tooltip'}
   ]
 }
