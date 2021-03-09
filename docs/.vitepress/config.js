@@ -26,6 +26,7 @@ module.exports = {
 function getComponents() {
   return [
     { text: 'Button', link: '/guide/button/button'},
+    { text: 'Checkbox', link: '/guide/checkbox/checkbox'},
     { text: 'Switch', link: '/guide/switch/switch'},
     { text: 'Tooltip', link: '/guide/tooltip/tooltip'}
   ]

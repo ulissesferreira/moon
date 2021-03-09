@@ -1,6 +1,6 @@
 <template>
   <label
-    class="c-Switch"
+    class="c-Checkbox"
     tabindex="0"
     @keydown.space.prevent
     @keyup.enter="onTrigger()"
@@ -9,14 +9,14 @@
     <input
       v-model="state"
       aria-hidden="true"
-      class="c-Switch__input"
+      class="c-Checkbox__input"
       type="checkbox"
       @click="onTrigger()"
     >
-    <div class="c-Switch__slider" />
+    <div class="c-Checkbox__element"></div>
     <span
       v-if="label"
-      class="c-Switch__label"
+      class="c-Checkbox__label"
     >
       {{ label }}
     </span>
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-  name: 'Switch',
+  name: 'Checkbox',
   props: {
     label: {
       type: String,
@@ -46,7 +46,7 @@ export default {
 }
 </script>
 <style scoped>
-.c-Switch {
+.c-Checkbox {
   cursor: pointer;
   position: relative;
   display: flex;
@@ -55,45 +55,46 @@ export default {
   width: fit-content;
 }
 
-.c-Switch input {
+.c-Checkbox input {
   display: none;
 }
 
-.c-Switch__slider {
+.c-Checkbox__element {
   position: relative;
   display: block;
-  width: 48px;
+  width: 24px;
   height: 24px;
-  border-radius: 24px;
-  background-color: #ccc;
+  border: 2px solid;
+  border-radius: 4px;
+  border-color: black;
   transition: 0.150s;
 }
 
-.c-Switch__slider:before {
-  border-radius: 24px;
-  position: absolute;
+.c-Checkbox__input:checked + .c-Checkbox__element {
+  background-color: black;
+}
+
+.c-Checkbox__element::after {
   content: "";
-  height: 20px;
-  width: 20px;
+  display: block;
+  position: absolute;
   left: 2px;
-  bottom: 2px;
-  background-color: white;
-  transition: 0.150s;
+  top: -4px;
+  width: 8px;
+  height: 14px;
+  border-width: 0 3px 3px 0;
+  border-style: solid;
+  border-color: white;
+  transform-origin: bottom left;
+  transform: rotate(45deg);
+  opacity: 0;
 }
 
-.c-Switch__input:checked + .c-Switch__slider {
-  background-color: #101010;
+.c-Checkbox__input:checked + .c-Checkbox__element::after {
+  opacity: 1
 }
 
-.c-Switch__input:focus + .c-Switch__slider {
-  box-shadow: 0 0 1px #101010;
-}
-
-.c-Switch__input:checked + .c-Switch__slider:before {
-  transform: translateX(24px);
-}
-
-.c-Switch__label {
+.c-Checkbox__label {
   user-select: none;
   margin-left: 8px;
 }

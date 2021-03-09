@@ -6,7 +6,7 @@ The switch provides you with a different kind of checkbox
 <Switch label="Switch"/>
 ```
 
-<Switch label="test"/>
+<Switch label="Switch"/>
 
 <script setup>
 import { Switch } from '../../../src/index'
