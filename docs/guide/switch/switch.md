@@ -3,11 +3,12 @@
 The switch provides you with a different kind of checkbox
 
 ```vue
-<Switch label="Switch"/>
+<p>State: {{ state }}</p>
+<Switch label="Switch" v-model="state"/>
 ```
 
-<Switch label="Switch"/>
+<SwitchExample />
 
 <script setup>
-import { Switch } from '../../../src/index'
+import SwitchExample from './SwitchExample.vue'
 </script>

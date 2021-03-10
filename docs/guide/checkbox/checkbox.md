@@ -3,10 +3,12 @@
 Checkbox
 
 ```vue
-<Checkbox label="Checkbox"/>
+<p>State: {{ state }}</p>
+<Checkbox label="Checkbox" v-model="state"/>
 ```
-<Checkbox label="Checkbox"/>
+
+<CheckboxExample />
 
 <script setup>
-import { Checkbox } from '../../../src/index'
+import CheckboxExample from './CheckboxExample.vue'
 </script>

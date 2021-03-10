@@ -26,21 +26,29 @@
 export default {
   name: 'Checkbox',
   props: {
+    modelValue: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     label: {
       type: String,
       required: false,
       default: undefined
     }
   },
+  emits: [
+    'update:modelValue'
+  ],
   data() {
     return {
-      state: false,
+      state: this.modelValue,
     }
   },
   methods: {
     onTrigger() {
       this.state = !this.state
-      this.$emit('change', this.state)
+      this.$emit('update:modelValue', this.state)
     }
   }
 }

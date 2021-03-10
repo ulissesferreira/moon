@@ -27,6 +27,7 @@ function getComponents() {
   return [
     { text: 'Button', link: '/guide/button/button'},
     { text: 'Checkbox', link: '/guide/checkbox/checkbox'},
+    { text: 'Radio', link: '/guide/radio/radio'},
     { text: 'Switch', link: '/guide/switch/switch'},
     { text: 'Tooltip', link: '/guide/tooltip/tooltip'}
   ]
