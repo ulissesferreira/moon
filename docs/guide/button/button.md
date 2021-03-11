@@ -3,11 +3,19 @@
 The button component is a simple customizable button.
 
 ```vue
-<Button label="test"/>
+<div style="margin-bottom: 16px">
+  <Button label="Default" />
+</div>
+<div style="margin-bottom: 16px">
+  <Button label="Outlined" type="outlined" />
+</div>
+<div style="margin-bottom: 16px">
+  <Button label="Text" type="text" />
+</div>
 ```
 
-<Button label="test"/>
+<ButtonExample />
 
 <script setup>
-import { Button } from '../../../src/index'
+import ButtonExample from './ButtonExample.vue'
 </script>

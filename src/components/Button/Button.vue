@@ -1,6 +1,7 @@
 <template>
   <button
     class="c-Button"
+    :class="buttonClassObject"
     type="button"
     :title="title"
     :aria-label="title"
@@ -24,16 +25,16 @@ export default {
       required: false,
       default: undefined,
     },
-    buttonType: {
+    type: {
       type: String,
       required: false,
       default: 'default',
-      validator(buttonType) {
+      validator(type) {
         return [
           'default',
           'outlined',
           'text'
-        ].includes(buttonType)
+        ].includes(type)
       }
     },
     disabled: {
@@ -45,8 +46,9 @@ export default {
   computed: {
     buttonClassObject() {
       return {
-        'is-outlined': this.buttonType === 'is-outlined',
-        'is-text': this.buttonType === 'is-text'
+        'is-default': this.type === 'default',
+        'is-outlined': this.type === 'outlined',
+        'is-text': this.type === 'text'
       }
     }
   },
@@ -64,7 +66,6 @@ export default {
   align-items: center;
   height: 32px;
   padding: 0 16px;
-  border: none;
   border-radius: 4px;
   position: relative;
 }
@@ -89,6 +90,24 @@ export default {
 
 .c-Button:active::before {
   opacity: 0.2;
+}
+
+.c-Button.is-default {
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+}
+
+.c-Button.is-outlined {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+.c-Button.is-text {
+  background-color: transparent;
+  border: none;
+  color: black;
 }
 
 .c-Button__label {
