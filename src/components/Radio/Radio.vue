@@ -104,11 +104,12 @@ export default {
   content: "";
   display: block;
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 16px;
   height: 16px;
-  border-radius: 20px;
+  border-radius: 16px;
   background-color: black;
   opacity: 0;
   transition: 0.150s;

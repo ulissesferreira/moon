@@ -1,8 +1,12 @@
 <template>
   <a
 		class="c-Link"
+    tabindex="0"
 		v-bind="linkAttributes"
 		@click="onClick()"
+    @keydown.space.prevent
+    @keyup.enter="onClick()"
+    @keyup.space="onClick()"
 	>
 		<span class="c-Link__label">{{ label }}</span>
 	</a>
