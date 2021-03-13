@@ -8,7 +8,7 @@
   <div style="margin-bottom: 16px">
     <Button label="Text" type="text" />
   </div>
-  <div style="margin-bottom: 16px">
+  <div>
     <Button label="Disabled" type="text" disabled/>
   </div>
 </template>

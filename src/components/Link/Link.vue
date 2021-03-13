@@ -1,7 +1,6 @@
 <template>
   <a
 		class="c-Link"
-    tabindex="0"
 		v-bind="linkAttributes"
 		@click="onClick()"
     @keydown.space.prevent
@@ -48,9 +47,10 @@ export default {
 			return {
 				title: this.title ? this.title : this.label,
 				href: this.disabled ? undefined : this.href,
-				rel: this.openNewTab ? 'noopener noreferrer' : undefined,
-				target: this.openNewTab ? '_blank' : undefined,
-        'aria-disabled': this.disabled
+				rel: this.openOnNewTab ? 'noopener noreferrer' : undefined,
+				target: this.openOnNewTab ? '_blank' : undefined,
+        'aria-disabled': this.disabled,
+        tabindex: this.disabled ? undefined : '0'
 			};
 		},
   },
