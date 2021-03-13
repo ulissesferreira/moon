@@ -8,6 +8,9 @@
   <div style="margin-bottom: 16px">
     <Button label="Text" type="text" />
   </div>
+  <div style="margin-bottom: 16px">
+    <Button label="Disabled" type="text" disabled/>
+  </div>
 </template>
 <script>
 import { Button } from '../../../src/index'

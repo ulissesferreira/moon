@@ -46,13 +46,11 @@ export default {
   computed: {
     linkAttributes() {
 			return {
-				class: {
-					'is-disabled': this.disabled,
-				},
 				title: this.title ? this.title : this.label,
 				href: this.disabled ? undefined : this.href,
 				rel: this.openNewTab ? 'noopener noreferrer' : undefined,
 				target: this.openNewTab ? '_blank' : undefined,
+        'aria-disabled': this.disabled
 			};
 		},
   },
@@ -88,9 +86,13 @@ export default {
   text-decoration: none;
 }
 
-.c-Link.is-disabled {
+.c-Link[aria-disabled="true"] {
   color: #8D98AA;
   cursor: not-allowed;
+}
+
+.c-Link[aria-disabled="true"]:hover {
+  text-decoration: none;
 }
 
 .c-Link__label {

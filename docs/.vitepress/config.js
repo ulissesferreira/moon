@@ -28,6 +28,7 @@ function getComponents() {
     { text: 'Button', link: '/guide/button/button'},
     { text: 'Checkbox', link: '/guide/checkbox/checkbox'},
     { text: 'Link', link: '/guide/link/link'},
+    { text: 'Modal', link: '/guide/modal/modal'},
     { text: 'Progress', link: '/guide/progress/progress'},
     { text: 'Radio', link: '/guide/radio/radio'},
     { text: 'Switch', link: '/guide/switch/switch'},

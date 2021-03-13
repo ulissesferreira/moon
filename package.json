@@ -37,6 +37,7 @@
     "vitepress": "^0.12.2"
   },
   "dependencies": {
+    "tabbable": "^5.1.6",
     "tippy.js": "^6.3.1"
   }
 }

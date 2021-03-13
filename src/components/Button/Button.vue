@@ -118,4 +118,20 @@ export default {
   text-transform: uppercase;
   letter-spacing: 1.25px;
 }
+
+.c-Button.is-default:disabled,
+.c-Button.is-outlined:disabled,
+.c-Button.is-text:disabled {
+  border-color: #EEEEEE;
+	background-color: #EEEEEE;
+  cursor: not-allowed;
+}
+
+.c-Button:disabled::before {
+  display: none;
+}
+
+.c-Button:disabled .c-Button__label {
+  color: #757575;
+}
 </style>
