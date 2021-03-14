@@ -1,7 +1,7 @@
 <template>
   <label
     class="c-Checkbox"
-    tabindex="0"
+    v-bind="checkboxAttributes"
     @keydown.space.prevent
     @keyup.enter="onTrigger()"
     @keyup.space="onTrigger()"
@@ -12,6 +12,7 @@
       class="c-Checkbox__input"
       type="checkbox"
       @click="onTrigger()"
+      :disabled="disabled"
     >
     <div class="c-Checkbox__element"></div>
     <span
@@ -35,6 +36,11 @@ export default {
       type: String,
       required: false,
       default: undefined
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     }
   },
   emits: [
@@ -44,6 +50,17 @@ export default {
     return {
       state: this.modelValue,
     }
+  },
+  computed: {
+    checkboxAttributes() {
+      return {
+        'aria-disabled': this.disabled,
+        tabindex: this.disabled ? undefined : '0'
+      }
+    }
+  },
+  updated() {
+    this.state = this.modelValue
   },
   methods: {
     onTrigger() {
@@ -78,10 +95,6 @@ export default {
   transition: 0.150s;
 }
 
-.c-Checkbox__input:checked + .c-Checkbox__element {
-  background-color: black;
-}
-
 .c-Checkbox__element::after {
   content: "";
   display: block;
@@ -98,12 +111,34 @@ export default {
   opacity: 0;
 }
 
+.c-Checkbox__label {
+  user-select: none;
+  margin-left: 8px;
+}
+
+/* Checked */
+
+.c-Checkbox__input:checked + .c-Checkbox__element {
+  background-color: black;
+}
+
 .c-Checkbox__input:checked + .c-Checkbox__element::after {
   opacity: 1
 }
 
-.c-Checkbox__label {
-  user-select: none;
-  margin-left: 8px;
+/* Disabled */
+
+.c-Checkbox[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+
+.c-Checkbox[aria-disabled="true"] .c-Checkbox__element {
+  border-color: #757575;
+  background-color: #E0E0E0;
+}
+
+.c-Checkbox[aria-disabled="true"] .c-Checkbox__element::after {
+  border-color: #757575;
 }
 </style>
