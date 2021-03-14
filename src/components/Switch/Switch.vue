@@ -1,7 +1,7 @@
 <template>
   <label
     class="c-Switch"
-    tabindex="0"
+    v-bind="switchAttributes"
     @keydown.space.prevent
     @keyup.enter="onTrigger()"
     @keyup.space="onTrigger()"
@@ -12,6 +12,7 @@
       class="c-Switch__input"
       type="checkbox"
       @click="onTrigger()"
+      :disabled="disabled"
     >
     <div class="c-Switch__slider" />
     <span
@@ -35,6 +36,11 @@ export default {
       type: String,
       required: false,
       default: undefined
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     }
   },
   emits: [
@@ -44,6 +50,17 @@ export default {
     return {
       state: this.modelValue,
     }
+  },
+  computed: {
+    switchAttributes() {
+      return {
+        'aria-disabled': this.disabled,
+        tabindex: this.disabled ? undefined : '0'
+      }
+    }
+  },
+  updated() {
+    this.state = this.modelValue
   },
   methods: {
     onTrigger() {
@@ -72,24 +89,34 @@ export default {
   display: block;
   width: 48px;
   height: 24px;
+  border: 1px solid #CCCCCC;
   border-radius: 24px;
-  background-color: #ccc;
+  background-color: #CCCCCC;
   transition: 0.150s;
 }
 
 .c-Switch__slider:before {
+  content: "";
   border-radius: 24px;
   position: absolute;
-  content: "";
+  position: absolute;
   height: 20px;
   width: 20px;
-  left: 2px;
-  bottom: 2px;
+  left: 1px;
+  bottom: 1px;
   background-color: white;
   transition: 0.150s;
 }
 
+.c-Switch__label {
+  user-select: none;
+  margin-left: 8px;
+}
+
+/* Checked */
+
 .c-Switch__input:checked + .c-Switch__slider {
+  border-color: #101010;
   background-color: #101010;
 }
 
@@ -98,11 +125,21 @@ export default {
 }
 
 .c-Switch__input:checked + .c-Switch__slider:before {
-  transform: translateX(24px);
+  transform: translate(24px);
 }
 
-.c-Switch__label {
-  user-select: none;
-  margin-left: 8px;
+/* Disabled */
+
+.c-Switch[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.c-Switch[aria-disabled="true"] .c-Switch__slider  {
+  border: 1px solid #757575;
+  background-color: #E0E0E0;
+}
+
+.c-Switch[aria-disabled="true"] .c-Switch__slider:before {
+  background-color: #757575;
 }
 </style>
