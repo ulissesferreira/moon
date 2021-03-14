@@ -5,7 +5,7 @@
   >
     <label
       class="c-Radio"
-      tabindex="0"
+      v-bind="radioAttributes"
       @keydown.space.prevent
       @keyup.enter="handleChange(item.value)"
       @keyup.space="handleChange(item.value)"
@@ -18,6 +18,7 @@
         :value="item.value"
         v-model="selectedValue"
         @change="handleChange(item.value)"
+        :disabled="disabled"
       >
       <div class="c-Radio__element"></div>
       <span
@@ -54,6 +55,11 @@ export default {
 
 				return isValid
 			}
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     }
   },
   emits: [
@@ -63,6 +69,14 @@ export default {
     return {
       selectedValue: this.modelValue
     }
+  },
+  computed: {
+    radioAttributes() {
+      return {
+        'aria-disabled': this.disabled,
+        tabindex: this.disabled ? undefined : '0'
+      }
+    },
   },
   methods: {
     handleChange(value) {
@@ -122,5 +136,20 @@ export default {
 .c-Radio__label {
   user-select: none;
   margin-left: 8px;
+}
+
+/* Disabled */
+
+.c-Radio[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.c-Radio[aria-disabled="true"] .c-Radio__element {
+  border-color: #757575;
+  background-color: #E0E0E0;
+}
+
+.c-Radio[aria-disabled="true"] .c-Radio__element::after {
+  background-color: #757575;
 }
 </style>
