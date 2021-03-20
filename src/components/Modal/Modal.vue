@@ -100,8 +100,8 @@ export default {
 <style scoped>
 .c-Modal__overlay {
   cursor: pointer;
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -120,5 +120,16 @@ export default {
 	box-shadow: 0px 10px 10px rgba(174, 185, 203, 0.26), 0px 14px 28px rgba(174, 185, 203, 0.25);
 	display: flex;
 	flex-direction: column;
+  max-height: 90%;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .c-Modal {
+    max-height: unset;
+    max-width: unset;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
