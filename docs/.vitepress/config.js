@@ -31,6 +31,7 @@ function getComponents() {
     { text: 'Modal', link: '/guide/modal/modal'},
     { text: 'Progress', link: '/guide/progress/progress'},
     { text: 'Radio', link: '/guide/radio/radio'},
+    { text: 'Sidebar', link: '/guide/sidebar/sidebar'},
     { text: 'Switch', link: '/guide/switch/switch'},
     { text: 'Tooltip', link: '/guide/tooltip/tooltip'}
   ]
