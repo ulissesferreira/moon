@@ -7,7 +7,8 @@
     ref="modal"
     class="c-Modal"
     role="dialog"
-		tabindex="0"
+    tabindex="0"
+    aria-modal="true"
   >
     <slot />
   </div>
@@ -27,8 +28,8 @@ export default {
   ],
   mounted() {
     previouslyFocusedElement = document.activeElement
-		this.focusModal();
-		document.addEventListener('keydown', this.handleKeyDown);
+    this.focusModal();
+    document.addEventListener('keydown', this.handleKeyDown);
 	},
   beforeUnmount() {
     document.removeEventListener('keydown', this.handleKeyDown);
