@@ -1,7 +1,7 @@
 <template>
   <Button label="Open sidebar" @click="openSidebar()" />
   <Sidebar
-    v-if="isOpen"
+    :is-open="isOpen"
     position="right"
     @close="closeSidebar()"
   >

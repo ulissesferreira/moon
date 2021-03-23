@@ -1,17 +1,28 @@
 <template>
-  <div
-    class="c-Sidebar__overlay"
-    @click="$emit('close')"
-  />
-  <div
-    ref="sidebar"
-    class="c-Sidebar"
-    :class="sidebarClassObject"
-    role="dialog"
-    tabindex="0"
+  <transition name="fade">
+    <div
+      v-if="isOpen"
+      class="c-Sidebar__overlay"
+      @click="$emit('close')"
+    />
+  </transition>
+  <transition
+    name="slide"
+    @before-enter="beforeSidebarOpen()"
+    @enter="sidebarOpening()"
+    @before-leave="beforeSidebarClose()"
   >
-    <slot />
-  </div>
+    <div
+      v-if="isOpen"
+      ref="sidebar"
+      class="c-Sidebar"
+      :class="sidebarClassObject"
+      role="dialog"
+      tabindex="0"
+    >
+      <slot />
+    </div>
+  </transition>
 </template>
 <script>
 import { tabbable } from 'tabbable';
@@ -24,6 +35,11 @@ let previouslyFocusedElement;
 export default {
   name: 'Sidebar',
   props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
     position: {
       type: String,
       required: false,
@@ -47,16 +63,18 @@ export default {
       }
     }
   },
-  mounted() {
-    previouslyFocusedElement = document.activeElement
-    this.focusSidebar();
-    document.addEventListener('keydown', this.handleKeyDown);
-	},
-  beforeUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-    previouslyFocusedElement?.focus()
-  },
   methods: {
+    beforeSidebarOpen() {
+      previouslyFocusedElement = document.activeElement
+    },
+    sidebarOpening() {
+      this.focusSidebar();
+      document.addEventListener('keydown', this.handleKeyDown);
+    },
+    beforeSidebarClose() {
+      document.removeEventListener('keydown', this.handleKeyDown);
+      previouslyFocusedElement?.focus()
+    },
 		getFocusableElements() {
       return tabbable(this.$refs.sidebar);
 		},
@@ -120,6 +138,23 @@ export default {
 }
 </script>
 <style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+
+.fade-enter-from, .fade-leave-to  {
+  opacity: 0;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transform: unset;
+  transition: transform .2s;
+}
+
+.slide-enter-from, .slide-leave-to  {
+  transform: translateX(100%);
+}
+
 .c-Sidebar__overlay {
   cursor: pointer;
 	width: 100%;
