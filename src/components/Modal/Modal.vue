@@ -4,6 +4,7 @@
     @before-enter="beforeModalOpen()"
     @enter="modalOpening()"
     @before-leave="beforeModalClose()"
+    @after-leave="afterModalClose()"
   >
     <div
       v-if="isOpen"
@@ -25,6 +26,7 @@
   </transition-group>
 </template>
 <script>
+import { lockScroll, unlockScroll } from '../../index'
 import { tabbable } from 'tabbable';
 
 const ESCAPE_KEY = 27;
@@ -47,6 +49,7 @@ export default {
   methods: {
     beforeModalOpen() {
       previouslyFocusedElement = document.activeElement
+      lockScroll()
     },
     modalOpening() {
       this.focusModal();
@@ -55,6 +58,9 @@ export default {
     beforeModalClose() {
       document.removeEventListener('keydown', this.handleKeyDown);
       previouslyFocusedElement?.focus()
+    },
+    afterModalClose() {
+      unlockScroll()
     },
 		getFocusableElements() {
       return tabbable(this.$refs.modal);

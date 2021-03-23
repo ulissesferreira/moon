@@ -11,6 +11,7 @@
     @before-enter="beforeSidebarOpen()"
     @enter="sidebarOpening()"
     @before-leave="beforeSidebarClose()"
+    @after-leave="afterSidebarClose()"
   >
     <div
       v-if="isOpen"
@@ -25,6 +26,7 @@
   </transition>
 </template>
 <script>
+import { lockScroll, unlockScroll } from '../../index'
 import { tabbable } from 'tabbable';
 
 const ESCAPE_KEY = 27;
@@ -66,6 +68,7 @@ export default {
   methods: {
     beforeSidebarOpen() {
       previouslyFocusedElement = document.activeElement
+      lockScroll()
     },
     sidebarOpening() {
       this.focusSidebar();
@@ -74,6 +77,9 @@ export default {
     beforeSidebarClose() {
       document.removeEventListener('keydown', this.handleKeyDown);
       previouslyFocusedElement?.focus()
+    },
+    afterSidebarClose() {
+      unlockScroll()
     },
 		getFocusableElements() {
       return tabbable(this.$refs.sidebar);
