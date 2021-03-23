@@ -1,17 +1,28 @@
 <template>
-  <div
-    class="c-Modal__overlay"
-    @click="$emit('close')"
-  />
-  <div
-    ref="modal"
-    class="c-Modal"
-    role="dialog"
-    tabindex="0"
-    aria-modal="true"
+  <transition-group
+    name="fade"
+    @before-enter="beforeModalOpen()"
+    @enter="modalOpening()"
+    @before-leave="beforeModalClose()"
   >
-    <slot />
-  </div>
+    <div
+      v-if="isOpen"
+      v-bind:css="false"
+      class="c-Modal__overlay"
+      @click="$emit('close')"
+    />
+    <div
+      v-if="isOpen"
+      v-bind:css="false"
+      ref="modal"
+      class="c-Modal"
+      role="dialog"
+      tabindex="0"
+      aria-modal="true"
+    >
+      <slot />
+    </div>
+  </transition-group>
 </template>
 <script>
 import { tabbable } from 'tabbable';
@@ -23,19 +34,28 @@ let previouslyFocusedElement;
 
 export default {
   name: 'Modal',
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
+  },
   emits: [
     'close'
   ],
-  mounted() {
-    previouslyFocusedElement = document.activeElement
-    this.focusModal();
-    document.addEventListener('keydown', this.handleKeyDown);
-	},
-  beforeUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-    previouslyFocusedElement?.focus()
-  },
   methods: {
+    beforeModalOpen() {
+      previouslyFocusedElement = document.activeElement
+    },
+    modalOpening() {
+      this.focusModal();
+      document.addEventListener('keydown', this.handleKeyDown);
+    },
+    beforeModalClose() {
+      document.removeEventListener('keydown', this.handleKeyDown);
+      previouslyFocusedElement?.focus()
+    },
 		getFocusableElements() {
       return tabbable(this.$refs.modal);
 		},
@@ -99,6 +119,14 @@ export default {
 }
 </script>
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+
+.fade-enter-from, .fade-leave-to  {
+  opacity: 0;
+}
+
 .c-Modal__overlay {
   cursor: pointer;
 	width: 100%;

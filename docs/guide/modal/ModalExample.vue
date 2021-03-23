@@ -1,6 +1,6 @@
 <template>
   <Button label="Open modal" @click="openModal()" />
-  <Modal v-if="isOpen" @close="closeModal()">
+  <Modal :is-open="isOpen" @close="closeModal()">
     <div class="o-Modal__example">
       <h1 style="margin: 0px;">Modal example</h1>
       <p>
