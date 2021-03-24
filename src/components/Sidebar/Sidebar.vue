@@ -2,6 +2,7 @@
   <transition name="fade">
     <div
       v-if="isOpen"
+      v-bind:css="false"
       class="c-Sidebar__overlay"
       @click="$emit('close')"
     />
@@ -15,6 +16,7 @@
   >
     <div
       v-if="isOpen"
+      v-bind:css="false"
       ref="sidebar"
       class="c-Sidebar"
       :class="sidebarClassObject"

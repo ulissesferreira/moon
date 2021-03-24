@@ -1,17 +1,19 @@
 <template>
-  <transition-group
-    name="fade"
-    @before-enter="beforeModalOpen()"
-    @enter="modalOpening()"
-    @before-leave="beforeModalClose()"
-    @after-leave="afterModalClose()"
-  >
+  <transition name="fade">
     <div
       v-if="isOpen"
       v-bind:css="false"
       class="c-Modal__overlay"
       @click="$emit('close')"
     />
+  </transition>
+  <transition
+    name="fade"
+    @before-enter="beforeModalOpen()"
+    @enter="modalOpening()"
+    @before-leave="beforeModalClose()"
+    @after-leave="afterModalClose()"
+  >
     <div
       v-if="isOpen"
       v-bind:css="false"
@@ -23,7 +25,7 @@
     >
       <slot />
     </div>
-  </transition-group>
+  </transition>
 </template>
 <script>
 import { lockScroll, unlockScroll } from '../../index'
