@@ -78,12 +78,12 @@ export default {
     },
   },
   watch: {
+    modelValue(newModelValue) {
+      this.selectedValue = newModelValue
+    },
     selectedValue(newValue) {
       this.$emit('update:modelValue', newValue)
     }
-  },
-  updated() {
-    this.selectedValue = this.modelValue
   },
   methods: {
     handleChange(value) {

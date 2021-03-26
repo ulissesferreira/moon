@@ -1,5 +1,9 @@
 <template>
   <div style="margin-bottom: 16px">
+    <p>Default</p>
+    <Input />
+  </div>
+  <div style="margin-bottom: 16px">
     <p>Example with label - {{ labelText }}</p>
     <Input label="Example text" v-model="labelText" />
   </div>

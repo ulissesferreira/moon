@@ -59,12 +59,12 @@ export default {
     }
   },
   watch: {
+    modelValue(newModelValue) {
+      this.state = newModelValue
+    },
     state(newValue) {
       this.$emit('update:modelValue', newValue)
     }
-  },
-  updated() {
-    this.state = this.modelValue
   },
   methods: {
     onTrigger() {

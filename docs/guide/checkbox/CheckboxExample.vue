@@ -1,5 +1,9 @@
 <template>
   <div style="margin-bottom: 16px">
+    <p>Default</p>
+    <Checkbox />
+  </div>
+  <div style="margin-bottom: 16px">
     <p>State: {{ state }}</p>
     <Checkbox label="Checkbox" v-model="state"/>
   </div>

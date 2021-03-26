@@ -35,7 +35,7 @@ export default {
     modelValue: {
       type: String,
       required: false,
-      default: undefined
+      default: ''
     },
     placeholder: {
       type: String,
@@ -78,12 +78,12 @@ export default {
     }
   },
   watch: {
+    modelValue(newModelValue) {
+      this.text = newModelValue
+    },
     text(newValue) {
       this.$emit('update:modelValue', newValue)
     }
-  },
-  updated() {
-    this.text = this.modelValue
   },
   methods: {
     onLabelClick() {
@@ -143,7 +143,7 @@ export default {
   font-size: 12px;
 }
 
-.c-Input.has-label input {
+.c-Input.has-label .c-Input__input {
   padding: 20px 8px 6px 8px;
 }
 

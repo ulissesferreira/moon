@@ -59,13 +59,17 @@ export default {
       }
     }
   },
-  updated() {
-    this.state = this.modelValue
+  watcher: {
+    modelValue(newModelValue) {
+      this.state = newModelValue
+    },
+    state(newValue) {
+      this.$emit('update:modelValue', newValue)
+    }
   },
   methods: {
     onTrigger() {
       this.state = !this.state
-      this.$emit('update:modelValue', this.state)
     }
   }
 }
