@@ -1,5 +1,6 @@
 export { default as Button } from './components/Button/Button.vue'
 export { default as Checkbox } from './components/Checkbox/Checkbox.vue'
+export { default as Input } from './components/Input/Input.vue'
 export { default as Link } from './components/Link/Link.vue'
 export { default as Modal } from './components/Modal/Modal.vue'
 export { default as Progress } from './components/Progress/Progress.vue'
