@@ -34,6 +34,7 @@ function getComponents() {
     { text: 'Radio', link: '/guide/radio/radio'},
     { text: 'Sidebar', link: '/guide/sidebar/sidebar'},
     { text: 'Switch', link: '/guide/switch/switch'},
+    { text: 'Textarea', link: '/guide/textarea/textarea'},
     { text: 'Tooltip', link: '/guide/tooltip/tooltip'}
   ]
 }

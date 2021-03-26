@@ -7,6 +7,7 @@ export { default as Progress } from './components/Progress/Progress.vue'
 export { default as Radio } from './components/Radio/Radio.vue'
 export { default as Sidebar } from './components/Sidebar/Sidebar.vue'
 export { default as Switch } from './components/Switch/Switch.vue'
+export { default as Textarea } from './components/Textarea/Textarea.vue'
 export { default as Tooltip } from './components/Tooltip/Tooltip.vue'
 
 export { lockScroll, unlockScroll } from './utils/scrollLock'
