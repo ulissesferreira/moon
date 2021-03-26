@@ -8,7 +8,7 @@
     />
   </transition>
   <transition
-    name="slide"
+    :name="slideAnimation"
     @before-enter="beforeSidebarOpen()"
     @enter="sidebarOpening()"
     @before-leave="beforeSidebarClose()"
@@ -65,6 +65,9 @@ export default {
         'is-right': this.position === 'right',
         'is-left': this.position === 'left'
       }
+    },
+    slideAnimation() {
+      return this.position === 'right' ? 'slideFromRight' : 'slideFromLeft'
     }
   },
   methods: {
@@ -154,13 +157,22 @@ export default {
   opacity: 0;
 }
 
-.slide-enter-active, .slide-leave-active {
+.slideFromRight-enter-active, .slideFromRight-leave-active {
   transform: unset;
   transition: transform .2s;
 }
 
-.slide-enter-from, .slide-leave-to  {
+.slideFromRight-enter-from, .slideFromRight-leave-to  {
   transform: translateX(100%);
+}
+
+.slideFromLeft-enter-active, .slideFromLeft-leave-active {
+  transform: unset;
+  transition: transform .2s;
+}
+
+.slideFromLeft-enter-from, .slideFromLeft-leave-to  {
+  transform: translateX(-100%);
 }
 
 .c-Sidebar__overlay {
