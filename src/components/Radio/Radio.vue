@@ -17,7 +17,6 @@
         :name="name"
         :value="item.value"
         v-model="selectedValue"
-        @change="handleChange(item.value)"
         :disabled="disabled"
       >
       <div class="c-Radio__element"></div>
@@ -78,10 +77,17 @@ export default {
       }
     },
   },
+  watch: {
+    selectedValue(newValue) {
+      this.$emit('update:modelValue', newValue)
+    }
+  },
+  updated() {
+    this.selectedValue = this.modelValue
+  },
   methods: {
     handleChange(value) {
       this.selectedValue = value
-      this.$emit('update:modelValue', this.selectedValue)
     }
   }
 }

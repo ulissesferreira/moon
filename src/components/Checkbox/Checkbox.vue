@@ -11,7 +11,6 @@
       aria-hidden="true"
       class="c-Checkbox__input"
       type="checkbox"
-      @click="onTrigger()"
       :disabled="disabled"
     >
     <div class="c-Checkbox__element"></div>
@@ -59,13 +58,17 @@ export default {
       }
     }
   },
+  watch: {
+    state(newValue) {
+      this.$emit('update:modelValue', newValue)
+    }
+  },
   updated() {
     this.state = this.modelValue
   },
   methods: {
     onTrigger() {
       this.state = !this.state
-      this.$emit('update:modelValue', this.state)
     }
   }
 }

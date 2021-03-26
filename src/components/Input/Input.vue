@@ -13,7 +13,6 @@
 			:disabled="disabled"
 			:aria-label="label"
       :placeholder="placeholder"
-      @input="onInput()"
     />
     <span
       class="c-Input__label"
@@ -78,13 +77,15 @@ export default {
       }
     }
   },
+  watch: {
+    text(newValue) {
+      this.$emit('update:modelValue', newValue)
+    }
+  },
   updated() {
     this.text = this.modelValue
   },
   methods: {
-    onInput() {
-      this.$emit('update:modelValue', this.text)
-    },
     onLabelClick() {
 			this.$refs.input.focus()
     }
