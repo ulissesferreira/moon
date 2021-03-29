@@ -29,7 +29,7 @@
   </div>
   <div style="margin-bottom: 16px">
     <p>Resize None</p>
-    <Textarea label="Resize vertical" resize="none" />
+    <Textarea label="Resize none" resize="none" />
   </div>
   <div style="margin-bottom: 16px">
     <p>Autogrow</p>
