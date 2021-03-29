@@ -7,12 +7,13 @@
       ref="input"
       class="c-Input__input"
       type="text"
-      v-model="text"
+      :value="text"
 			:name="name"
 			:required="required"
 			:disabled="disabled"
 			:aria-label="label"
       :placeholder="placeholder"
+      @input="text = $event.target.value"
     />
     <span
       class="c-Input__label"
@@ -35,7 +36,7 @@ export default {
     modelValue: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
     },
     placeholder: {
       type: String,

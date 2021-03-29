@@ -6,12 +6,13 @@
 		<textarea
 			ref="textarea"
       class="c-Textarea__input"
-			v-model="text"
+      :value="text"
       :name="name"
       :required="required"
       :disabled="disabled"
 			:aria-label="label"
 			:placeholder="placeholder"
+      @input="text = $event.target.value"
 		/>
 		<span
 			class="c-Textarea__label"
@@ -34,7 +35,7 @@ export default {
     modelValue: {
 			type: String,
 			required: false,
-			default: '',
+			default: undefined,
 		},
     placeholder: {
       type: String,
@@ -75,6 +76,9 @@ export default {
 			}
 		},
   },
+  emits: [
+    'update:modelValue'
+  ],
   data() {
     return {
       text: this.modelValue

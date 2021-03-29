@@ -7,11 +7,12 @@
     @keyup.space="onTrigger()"
   >
     <input
-      v-model="state"
       aria-hidden="true"
       class="c-Checkbox__input"
       type="checkbox"
       :disabled="disabled"
+      :checked="state"
+      @change="state = $event.target.checked"
     >
     <div class="c-Checkbox__element"></div>
     <span
@@ -69,7 +70,7 @@ export default {
   methods: {
     onTrigger() {
       this.state = !this.state
-    }
+    },
   }
 }
 </script>
