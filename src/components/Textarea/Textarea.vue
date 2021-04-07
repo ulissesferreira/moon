@@ -199,6 +199,7 @@ export default {
 }
 
 .c-Textarea__input:disabled + .c-Textarea__label {
+  cursor: not-allowed;
   color: #757575;
 }
 
