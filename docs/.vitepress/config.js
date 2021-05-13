@@ -32,6 +32,7 @@ function getComponents() {
     { text: 'Modal', link: '/guide/modal/modal'},
     { text: 'Progress', link: '/guide/progress/progress'},
     { text: 'Radio', link: '/guide/radio/radio'},
+    { text: 'Select', link: '/guide/select/select'},
     { text: 'Sidebar', link: '/guide/sidebar/sidebar'},
     { text: 'Switch', link: '/guide/switch/switch'},
     { text: 'Textarea', link: '/guide/textarea/textarea'},
