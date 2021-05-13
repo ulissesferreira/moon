@@ -33,7 +33,7 @@
   </div>
   <div style="margin-bottom: 16px">
     <p>Autogrow</p>
-    <Textarea label="Resize vertical" autogrow />
+    <Textarea label="Autogrow" autogrow />
   </div>
   <div style="margin-bottom: 16px">
     <p>Autogrow no label</p>
