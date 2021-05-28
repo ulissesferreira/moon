@@ -8,7 +8,10 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [
     vue(),
-    analyze()
+    analyze({
+      summaryOnly: true,
+      filter: 'moon/src/'
+    })
   ],
   build: {
     lib: {
