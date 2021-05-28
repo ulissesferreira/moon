@@ -1,5 +1,17 @@
 # Sidebar
 
+| Prop | Description | Accepted Values | Default |
+| :--- | :--- | :--- | :--- |
+| ```isOpen``` | Visibility flag for the sidebar | ```true``` or ```false``` | ```false``` |
+
+| Event | Description | Parameters |
+| :--- | :--- | :--- |
+| ```close``` | Triggered when the user signals intention to close the sidebar (through ```ESC``` key or clicking outside of it). Can be triggered inside the Sidebar body  | ```newValue```: Checked state |
+
+| Slot | Description |
+| :--- | :--- |
+| ```default``` | Layout inside sidebar |
+
 Sidebar
 
 ```vue
