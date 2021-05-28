@@ -28,12 +28,12 @@
 export default {
   name: 'Input',
   props: {
-    label: {
+    modelValue: {
       type: String,
       required: false,
       default: undefined
     },
-    modelValue: {
+    label: {
       type: String,
       required: false,
       default: undefined
