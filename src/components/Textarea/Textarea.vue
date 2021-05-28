@@ -27,16 +27,16 @@
 export default {
   name: 'Textarea',
   props: {
-    label: {
-      type: String,
-      required: false,
-      default: undefined
-    },
     modelValue: {
 			type: String,
 			required: false,
 			default: undefined,
 		},
+    label: {
+      type: String,
+      required: false,
+      default: undefined
+    },
     placeholder: {
       type: String,
       required: false,
