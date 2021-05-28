@@ -1,5 +1,17 @@
 # Modal
 
+| Prop | Description | Accepted Values | Default |
+| :--- | :--- | :--- | :--- |
+| ```isOpen``` | Visibility flag for the modal | ```true``` or ```false``` | ```false``` |
+
+| Event | Description | Parameters |
+| :--- | :--- | :--- |
+| ```close``` | Triggered when the user signals intention to close modal (through ```ESC``` key or clicking outside of it). Can be triggered inside the Modal body  | ```newValue```: Checked state |
+
+| Slot | Description |
+| :--- | :--- |
+| ```default``` | Layout inside modal |
+
 Modal
 
 ```vue
