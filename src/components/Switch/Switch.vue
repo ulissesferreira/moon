@@ -59,7 +59,7 @@ export default {
       }
     }
   },
-  watcher: {
+  watch: {
     modelValue(newModelValue) {
       this.state = newModelValue
     },
@@ -93,9 +93,9 @@ export default {
   display: block;
   width: 48px;
   height: 24px;
-  border: 1px solid #CCCCCC;
+  border: 2px solid black;
   border-radius: 24px;
-  background-color: #CCCCCC;
+  background-color: white;
   transition: 0.150s;
 }
 
@@ -104,11 +104,11 @@ export default {
   border-radius: 24px;
   position: absolute;
   position: absolute;
-  height: 20px;
-  width: 20px;
-  left: 1px;
-  bottom: 1px;
-  background-color: white;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  background-color: black;
   transition: 0.150s;
 }
 
@@ -129,6 +129,7 @@ export default {
 }
 
 .c-Switch__input:checked + .c-Switch__slider:before {
+  background-color: white;
   transform: translate(24px);
 }
 
@@ -139,11 +140,21 @@ export default {
 }
 
 .c-Switch[aria-disabled="true"] .c-Switch__slider  {
-  border: 1px solid #757575;
+  border: 2px solid #757575;
   background-color: #E0E0E0;
+}
+
+.c-Switch[aria-disabled="true"] .c-Switch__input:checked + .c-Switch__slider  {
+  border: 2px solid #757575;
+  background-color: #757575;
 }
 
 .c-Switch[aria-disabled="true"] .c-Switch__slider:before {
   background-color: #757575;
+}
+
+.c-Switch[aria-disabled="true"] .c-Switch__input:checked + .c-Switch__slider:before {
+  background-color: #E0E0E0;
+  transform: translate(24px);
 }
 </style>

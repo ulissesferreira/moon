@@ -142,7 +142,15 @@ export default {
   background-color: #E0E0E0;
 }
 
+.c-Checkbox[aria-disabled="true"] .c-Checkbox__input:checked + .c-Checkbox__element {
+  background-color: #757575;
+}
+
 .c-Checkbox[aria-disabled="true"] .c-Checkbox__element::after {
   border-color: #757575;
+}
+
+.c-Checkbox[aria-disabled="true"] .c-Checkbox__input:checked + .c-Checkbox__element::after {
+  border-color: #E0E0E0;
 }
 </style>
