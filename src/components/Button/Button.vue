@@ -1,6 +1,5 @@
 <template>
   <button
-    class="c-Button"
     :class="buttonClassObject"
     type="button"
     :title="title"
@@ -8,7 +7,7 @@
     :disabled="disabled"
     @click="onClick($event)"
   >
-    <span class="c-Button__label">{{ label }}</span>
+    <span>{{ label }}</span>
   </button>
 </template>
 <script>
@@ -63,7 +62,7 @@ export default {
 }
 </script>
 <style scoped>
-.c-Button {
+button {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -73,7 +72,7 @@ export default {
   position: relative;
 }
 
-.c-Button::before {
+button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -87,51 +86,51 @@ export default {
   background-color: black;
 }
 
-.c-Button:hover::before  {
+button:hover::before  {
   opacity: 0.1;
 }
 
-.c-Button:active::before {
+button:active::before {
   opacity: 0.2;
 }
 
-.c-Button.is-default {
+button.is-default {
   background-color: black;
   border: 1px solid black;
   color: white;
 }
 
-.c-Button.is-outlined {
+button.is-outlined {
   background-color: transparent;
   border: 1px solid black;
   color: black;
 }
 
-.c-Button.is-text {
+button.is-text {
   background-color: transparent;
   border: none;
   color: black;
 }
 
-.c-Button__label {
+span {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.25px;
 }
 
-.c-Button.is-default:disabled,
-.c-Button.is-outlined:disabled,
-.c-Button.is-text:disabled {
+button.is-default:disabled,
+button.is-outlined:disabled,
+button.is-text:disabled {
   border-color: #EEEEEE;
 	background-color: #EEEEEE;
   cursor: not-allowed;
 }
 
-.c-Button:disabled::before {
+button:disabled::before {
   display: none;
 }
 
-.c-Button:disabled .c-Button__label {
+button:disabled > span {
   color: #757575;
 }
 </style>
