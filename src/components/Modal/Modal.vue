@@ -1,31 +1,33 @@
 <template>
-  <transition name="fade">
-    <div
-      v-if="isOpen"
-      v-bind:css="false"
-      class="c-Modal__overlay"
-      @click="$emit('close')"
-    />
-  </transition>
-  <transition
-    name="fade"
-    @before-enter="beforeModalOpen()"
-    @enter="modalOpening()"
-    @before-leave="beforeModalClose()"
-    @after-leave="afterModalClose()"
-  >
-    <div
-      v-if="isOpen"
-      v-bind:css="false"
-      ref="modal"
-      class="c-Modal"
-      role="dialog"
-      tabindex="0"
-      aria-modal="true"
+  <teleport to="body">
+    <transition name="fade">
+      <div
+        v-if="isOpen"
+        v-bind:css="false"
+        class="c-Modal__overlay"
+        @click="$emit('close')"
+      />
+    </transition>
+    <transition
+      name="fade"
+      @before-enter="beforeModalOpen()"
+      @enter="modalOpening()"
+      @before-leave="beforeModalClose()"
+      @after-leave="afterModalClose()"
     >
-      <slot />
-    </div>
-  </transition>
+      <div
+        v-if="isOpen"
+        v-bind:css="false"
+        ref="modal"
+        class="c-Modal"
+        role="dialog"
+        tabindex="0"
+        aria-modal="true"
+      >
+        <slot />
+      </div>
+    </transition>
+  </teleport>
 </template>
 <script>
 import { lockScroll, unlockScroll } from '../../index'
