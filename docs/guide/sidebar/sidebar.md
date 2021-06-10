@@ -3,6 +3,7 @@
 | Prop | Description | Accepted Values | Default |
 | :--- | :--- | :--- | :--- |
 | ```isOpen``` | Visibility flag for the sidebar | ```true``` or ```false``` | ```false``` |
+| ```position``` | Where the sidebar is located | ```right``` or ```left``` | ```right``` |
 
 | Event | Description | Parameters |
 | :--- | :--- | :--- |
