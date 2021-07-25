@@ -29,22 +29,22 @@
     "format": "prettier .  --write"
   },
   "peerDependencies": {
-    "vue": "^3.0.5"
+    "vue": "^3.1.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.1.4",
-    "@vue/compiler-sfc": "^3.0.5",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.1.5",
     "eslint": "^7.31.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-vue": "^7.14.0",
     "prettier": "^2.3.2",
     "rollup-plugin-visualizer": "^5.5.2",
-    "vite": "^2.0.1",
-    "vitepress": "^0.12.2"
+    "vite": "^2.4.3",
+    "vitepress": "^0.15.6"
   },
   "dependencies": {
-    "mitt": "^2.1.0",
-    "tabbable": "^5.1.6",
+    "mitt": "^3.0.0",
+    "tabbable": "^5.2.0",
     "tippy.js": "^6.3.1"
   }
 }
