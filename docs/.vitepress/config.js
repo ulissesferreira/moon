@@ -9,7 +9,12 @@ module.exports = {
 
   themeConfig: {
     docsDir: 'docs',
-
+    nav: [
+      {
+        text: 'Github',
+        link: 'https://github.com/ulissesferreira/moon',
+      },
+    ],
     sidebar: [
       {
         text: 'Introduction',
