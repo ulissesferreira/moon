@@ -5,6 +5,9 @@ dist
 dist-ssr
 *.local
 
+# Rollup Bundle Visualizer
+stats.html
+
 # Logs
 logs
 *.log

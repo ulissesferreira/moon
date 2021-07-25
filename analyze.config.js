@@ -1,4 +1,4 @@
-import analyze from 'rollup-plugin-analyzer'
+import { visualizer } from 'rollup-plugin-visualizer'
 import vue from '@vitejs/plugin-vue'
 
 import { defineConfig } from 'vite'
@@ -8,9 +8,9 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [
     vue(),
-    analyze({
-      summaryOnly: true,
-      filter: 'moon/src/'
+    visualizer({
+      open: true,
+      title: 'Moon Bundle Visualizer'
     })
   ],
   build: {
