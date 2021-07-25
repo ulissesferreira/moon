@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button label="OPEN" @click="openModal"/>
+    <Button label="OPEN" @click="openModal" />
   </div>
   <ModalManager />
 </template>
@@ -14,12 +14,12 @@ export default {
     Button,
     EventBus,
     ModalManager,
-    LayoutExample
+    LayoutExample,
   },
   methods: {
     openModal() {
       EventBus.emit(EVENTS.OPEN_MODAL, { component: LayoutExample })
-    }
-  }
+    },
+  },
 }
 </script>

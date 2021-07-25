@@ -34,15 +34,15 @@ import { Input } from '../../../src/index'
 export default {
   name: 'InputExample',
   components: {
-    Input
+    Input,
   },
   data() {
     return {
       labelText: '',
       placeholderLabelText: '',
       noLabelText: '',
-      requiredText: ''
+      requiredText: '',
     }
-  }
+  },
 }
 </script>

@@ -1,26 +1,23 @@
 <template>
-  <div
-    class="c-Textarea"
-    :class="textareaClassObject"
-  >
-		<textarea
-			ref="textarea"
+  <div class="c-Textarea" :class="textareaClassObject">
+    <textarea
+      ref="textarea"
       class="c-Textarea__input"
       :value="text"
       :name="name"
       :required="required"
       :disabled="disabled"
-			:aria-label="label"
-			:placeholder="placeholder"
+      :aria-label="label"
+      :placeholder="placeholder"
       @input="text = $event.target.value"
-		/>
-		<span
-			class="c-Textarea__label"
+    />
+    <span
+      class="c-Textarea__label"
       :title="label"
       @mousedown.prevent="onLabelClick($event)"
-		>
-			{{ label }}
-		</span>
+    >
+      {{ label }}
+    </span>
   </div>
 </template>
 <script>
@@ -28,74 +25,68 @@ export default {
   name: 'Textarea',
   props: {
     modelValue: {
-			type: String,
-			required: false,
-			default: undefined,
-		},
+      type: String,
+      required: false,
+      default: undefined,
+    },
     label: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     placeholder: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     name: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     autogrow: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
-		resize: {
-			type: String,
-			required: false,
-			default: 'default',
-			validator (resize) {
-				return [
-					'default',
-					'vertical',
-					'horizontal',
-					'none',
-				].includes(resize)
-			}
-		},
+    resize: {
+      type: String,
+      required: false,
+      default: 'default',
+      validator(resize) {
+        return ['default', 'vertical', 'horizontal', 'none'].includes(resize)
+      },
+    },
   },
-  emits: [
-    'update:modelValue'
-  ],
+  emits: ['update:modelValue'],
   data() {
     return {
-      text: this.modelValue
+      text: this.modelValue,
     }
   },
   computed: {
     textareaClassObject() {
       const hasText = this.text !== '' && this.text !== undefined
-      const hasPlaceholder = this.placeholder !== '' && this.placeholder !== undefined
+      const hasPlaceholder =
+        this.placeholder !== '' && this.placeholder !== undefined
 
       return {
         'has-value': hasText || hasPlaceholder,
         'has-label': this.label !== '' && this.label !== undefined,
         'has-vertical-resize': this.resize === 'vertical' && !this.autogrow,
-				'has-horizontal-resize': this.resize === 'horizontal' && !this.autogrow,
+        'has-horizontal-resize': this.resize === 'horizontal' && !this.autogrow,
         'has-no-resize': this.resize === 'none',
-        'has-autogrow': this.autogrow
+        'has-autogrow': this.autogrow,
       }
     },
   },
@@ -109,20 +100,20 @@ export default {
       }
 
       this.$emit('update:modelValue', newValue)
-    }
+    },
   },
   methods: {
     onLabelClick() {
-			this.$refs.textarea.focus()
-    }
-  }
+      this.$refs.textarea.focus()
+    },
+  },
 }
 </script>
 <style scoped>
 .c-Textarea {
   position: relative;
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .c-Textarea__input {
@@ -141,9 +132,7 @@ export default {
   padding: 8px;
   cursor: pointer;
   position: relative;
-  transition:
-    border 150ms ease-in-out,
-    box-shadow 150ms ease-in-out;
+  transition: border 150ms ease-in-out, box-shadow 150ms ease-in-out;
   z-index: 1;
 }
 
@@ -195,7 +184,7 @@ export default {
   cursor: not-allowed;
   border-color: #757575;
   color: #757575;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 .c-Textarea__input:disabled + .c-Textarea__label {
@@ -227,7 +216,7 @@ export default {
 }
 
 .c-Textarea.has-autogrow::after {
-  content: attr(data-replicated-text) " ";
+  content: attr(data-replicated-text) ' ';
   white-space: pre-wrap;
   visibility: hidden;
   grid-area: 1 / 1 / 2 / 2;

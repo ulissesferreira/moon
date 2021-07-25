@@ -9,7 +9,7 @@ import { Tooltip } from '../../../src/index'
 export default {
   name: 'TooltipExample',
   components: {
-    Tooltip
-  }
+    Tooltip,
+  },
 }
 </script>

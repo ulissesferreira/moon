@@ -7,13 +7,8 @@
     :aria-valuemax="max"
     :aria-valuenow="value"
   >
-    <div
-      class="c-Progress__background"
-    />
-    <div
-      class="c-Progress__fill"
-      :style="`width: ${progressPercentage}%`"
-    />
+    <div class="c-Progress__background" />
+    <div class="c-Progress__fill" :style="`width: ${progressPercentage}%`" />
   </div>
 </template>
 <script>
@@ -23,13 +18,13 @@ export default {
     value: {
       type: [Number, String],
       required: false,
-      default: 0
+      default: 0,
     },
     max: {
       type: [Number, String],
       required: false,
-      default: 100
-    }
+      default: 100,
+    },
   },
   computed: {
     progressPercentage() {
@@ -37,12 +32,12 @@ export default {
       const max = Number(this.max)
 
       if (Number.isNaN(value) || Number.isNaN(max)) {
-        return 0;
+        return 0
       }
 
-      return Math.round(value / max * 100)
-    }
-  }
+      return Math.round((value / max) * 100)
+    },
+  },
 }
 </script>
 <style scoped>
@@ -65,6 +60,6 @@ export default {
   border-radius: 8px;
   height: 16px;
   min-width: 16px;
-  transition: .2s cubic-bezier(.4,0,.6,1);
+  transition: 0.2s cubic-bezier(0.4, 0, 0.6, 1);
 }
 </style>

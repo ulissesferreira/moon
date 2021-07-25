@@ -1,8 +1,5 @@
 <template>
-  <template
-    v-for="(item, index) in items"
-    :key="`radio-${index}`"
-  >
+  <template v-for="(item, index) in items" :key="`radio-${index}`">
     <label
       class="c-Radio"
       v-bind="radioAttributes"
@@ -11,19 +8,16 @@
       @keyup.space="handleChange(item.value)"
     >
       <input
+        v-model="selectedValue"
         aria-hidden="true"
         class="c-Radio__input"
         type="radio"
         :name="name"
         :value="item.value"
-        v-model="selectedValue"
         :disabled="disabled"
-      >
+      />
       <div class="c-Radio__element"></div>
-      <span
-        v-if="item.label"
-        class="c-Radio__label"
-      >
+      <span v-if="item.label" class="c-Radio__label">
         {{ item.label }}
       </span>
     </label>
@@ -46,34 +40,32 @@ export default {
       type: Array,
       required: true,
       validator: (items) => {
-				let isValid = true
+        let isValid = true
 
-				items.forEach((item) => {
-					isValid &&= 'label' in item && 'value' in item
-				})
+        items.forEach((item) => {
+          isValid = isValid && 'label' in item && 'value' in item
+        })
 
-				return isValid
-			}
+        return isValid
+      },
     },
     disabled: {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
-  emits: [
-    'update:modelValue'
-  ],
+  emits: ['update:modelValue'],
   data() {
     return {
-      selectedValue: this.modelValue
+      selectedValue: this.modelValue,
     }
   },
   computed: {
     radioAttributes() {
       return {
         'aria-disabled': this.disabled,
-        tabindex: this.disabled ? undefined : '0'
+        tabindex: this.disabled ? undefined : '0',
       }
     },
   },
@@ -83,13 +75,13 @@ export default {
     },
     selectedValue(newValue) {
       this.$emit('update:modelValue', newValue)
-    }
+    },
   },
   methods: {
     handleChange(value) {
       this.selectedValue = value
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -121,7 +113,7 @@ export default {
 }
 
 .c-Radio__element::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 50%;
@@ -132,7 +124,7 @@ export default {
   border-radius: 16px;
   background-color: black;
   opacity: 0;
-  transition: 0.150s;
+  transition: 0.15s;
 }
 
 .c-Radio__input:checked + .c-Radio__element::after {
@@ -146,16 +138,16 @@ export default {
 
 /* Disabled */
 
-.c-Radio[aria-disabled="true"] {
+.c-Radio[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-.c-Radio[aria-disabled="true"] .c-Radio__element {
+.c-Radio[aria-disabled='true'] .c-Radio__element {
   border-color: #757575;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
-.c-Radio[aria-disabled="true"] .c-Radio__element::after {
+.c-Radio[aria-disabled='true'] .c-Radio__element::after {
   background-color: #757575;
 }
 </style>

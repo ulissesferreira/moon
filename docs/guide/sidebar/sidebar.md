@@ -1,27 +1,23 @@
 # Sidebar
 
-| Prop | Description | Accepted Values | Default |
-| :--- | :--- | :--- | :--- |
-| ```isOpen``` | Visibility flag for the sidebar | ```true``` or ```false``` | ```false``` |
-| ```position``` | Where the sidebar is located | ```right``` or ```left``` | ```right``` |
+| Prop       | Description                     | Accepted Values   | Default |
+| :--------- | :------------------------------ | :---------------- | :------ |
+| `isOpen`   | Visibility flag for the sidebar | `true` or `false` | `false` |
+| `position` | Where the sidebar is located    | `right` or `left` | `right` |
 
-| Event | Description | Parameters |
-| :--- | :--- | :--- |
-| ```close``` | Triggered when the user signals intention to close the sidebar (through ```ESC``` key or clicking outside of it). Can be triggered inside the Sidebar body  | ```newValue```: Checked state |
+| Event   | Description                                                                                                                                            | Parameters                |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ |
+| `close` | Triggered when the user signals intention to close the sidebar (through `ESC` key or clicking outside of it). Can be triggered inside the Sidebar body | `newValue`: Checked state |
 
-| Slot | Description |
-| :--- | :--- |
-| ```default``` | Layout inside sidebar |
+| Slot      | Description           |
+| :-------- | :-------------------- |
+| `default` | Layout inside sidebar |
 
 Sidebar
 
 ```vue
 <Button label="Open sidebar" @click="openSidebar()" />
-<Sidebar
-  :is-open="isOpen"
-  position="right"
-  @close="closeSidebar()"
->
+<Sidebar :is-open="isOpen" position="right" @close="closeSidebar()">
   <div class="o-Sidebar__example">
     <h1 style="margin: 0px;">Sidebar example</h1>
     <p>

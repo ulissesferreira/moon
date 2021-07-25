@@ -9,7 +9,10 @@
   </div>
   <div style="margin-bottom: 16px">
     <p>Example with placeholder - {{ placeholderLabelText }}</p>
-    <Textarea placeholder="Write something here" v-model="placeholderLabelText" />
+    <Textarea
+      placeholder="Write something here"
+      v-model="placeholderLabelText"
+    />
   </div>
   <div style="margin-bottom: 16px">
     <p>Example without label - {{ noLabelText }}</p>
@@ -23,7 +26,7 @@
     <p>Resize Vertical</p>
     <Textarea label="Resize vertical" resize="vertical" />
   </div>
-    <div style="margin-bottom: 16px">
+  <div style="margin-bottom: 16px">
     <p>Resize Horizontal</p>
     <Textarea label="Resize horizontal" resize="horizontal" />
   </div>
@@ -45,7 +48,11 @@
   </div>
   <div style="margin-bottom: 16px">
     <p>Disabled with a label</p>
-    <Textarea label="Oh :(" modelValue="Resize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontal" disabled />
+    <Textarea
+      label="Oh :("
+      modelValue="Resize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontalResize horizontal"
+      disabled
+    />
   </div>
 </template>
 <script>
@@ -54,15 +61,15 @@ import { Textarea } from '../../../src/index'
 export default {
   name: 'SwitchExample',
   components: {
-    Textarea
+    Textarea,
   },
   data() {
     return {
       labelText: '',
       placeholderLabelText: '',
       noLabelText: '',
-      requiredText: ''
+      requiredText: '',
     }
-  }
+  },
 }
 </script>

@@ -29,36 +29,30 @@ export default {
       required: false,
       default: 'default',
       validator(type) {
-        return [
-          'default',
-          'outlined',
-          'text'
-        ].includes(type)
-      }
+        return ['default', 'outlined', 'text'].includes(type)
+      },
     },
     disabled: {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
-  emits: [
-    'click'
-  ],
+  emits: ['click'],
   computed: {
     buttonClassObject() {
       return {
         'is-default': this.type === 'default',
         'is-outlined': this.type === 'outlined',
-        'is-text': this.type === 'text'
+        'is-text': this.type === 'text',
       }
-    }
+    },
   },
   methods: {
     onClick(event) {
       this.$emit('click', event)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>
@@ -86,7 +80,7 @@ button::before {
   background-color: black;
 }
 
-button:hover::before  {
+button:hover::before {
   opacity: 0.1;
 }
 
@@ -121,8 +115,8 @@ span {
 button.is-default:disabled,
 button.is-outlined:disabled,
 button.is-text:disabled {
-  border-color: #EEEEEE;
-	background-color: #EEEEEE;
+  border-color: #eeeeee;
+  background-color: #eeeeee;
   cursor: not-allowed;
 }
 

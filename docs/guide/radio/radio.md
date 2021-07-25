@@ -3,18 +3,21 @@
 Radio
 
 ```js
-const items = [{
+const items = [
+  {
     label: 'Label 1',
-    value: 'value1'
-}, {
+    value: 'value1',
+  },
+  {
     label: 'Label 2',
-    value: 'value2'
-}];
+    value: 'value2',
+  },
+]
 ```
 
 ```vue
 <p>{{ selectedValue }}</p>
-<Radio name="example" :items="items" v-model="selectedValue"/>
+<Radio name="example" :items="items" v-model="selectedValue" />
 ```
 
 <RadioExample />

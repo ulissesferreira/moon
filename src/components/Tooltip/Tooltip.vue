@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
+import tippy from 'tippy.js'
+import 'tippy.js/dist/tippy.css'
 
 export default {
   name: 'Tooltip',
@@ -13,13 +13,13 @@ export default {
     content: {
       type: String,
       required: true,
-    }
+    },
   },
   mounted() {
     tippy(this.$el, {
-      content: this.content
+      content: this.content,
     })
-  }
+  },
 }
 </script>
 <style scoped>

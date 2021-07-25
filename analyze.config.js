@@ -10,13 +10,13 @@ export default defineConfig({
     vue(),
     visualizer({
       open: true,
-      title: 'Moon Bundle Visualizer'
-    })
+      title: 'Moon Bundle Visualizer',
+    }),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
-      name: 'moon'
+      name: 'moon',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
@@ -26,9 +26,9 @@ export default defineConfig({
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
-          vue: 'Vue'
-        }
-      }
-    }
-  }
+          vue: 'Vue',
+        },
+      },
+    },
+  },
 })

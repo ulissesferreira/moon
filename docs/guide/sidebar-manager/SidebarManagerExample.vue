@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button label="OPEN" @click="openSidebar"/>
+    <Button label="OPEN" @click="openSidebar" />
   </div>
   <SidebarManager />
 </template>
@@ -14,12 +14,12 @@ export default {
     Button,
     EventBus,
     SidebarManager,
-    LayoutExample
+    LayoutExample,
   },
   methods: {
     openSidebar() {
       EventBus.emit(EVENTS.OPEN_SIDEBAR, { component: LayoutExample })
-    }
-  }
+    },
+  },
 }
 </script>

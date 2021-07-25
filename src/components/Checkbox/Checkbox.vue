@@ -13,12 +13,9 @@
       :disabled="disabled"
       :checked="state"
       @change="state = $event.target.checked"
-    >
+    />
     <div class="c-Checkbox__element"></div>
-    <span
-      v-if="label"
-      class="c-Checkbox__label"
-    >
+    <span v-if="label" class="c-Checkbox__label">
       {{ label }}
     </span>
   </label>
@@ -35,17 +32,15 @@ export default {
     label: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     disabled: {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
-  emits: [
-    'update:modelValue'
-  ],
+  emits: ['update:modelValue'],
   data() {
     return {
       state: this.modelValue,
@@ -55,9 +50,9 @@ export default {
     checkboxAttributes() {
       return {
         'aria-disabled': this.disabled,
-        tabindex: this.disabled ? undefined : '0'
+        tabindex: this.disabled ? undefined : '0',
       }
-    }
+    },
   },
   watch: {
     modelValue(newModelValue) {
@@ -65,13 +60,13 @@ export default {
     },
     state(newValue) {
       this.$emit('update:modelValue', newValue)
-    }
+    },
   },
   methods: {
     onTrigger() {
       this.state = !this.state
     },
-  }
+  },
 }
 </script>
 <style scoped>
@@ -96,11 +91,11 @@ export default {
   border: 2px solid;
   border-radius: 4px;
   border-color: black;
-  transition: 0.150s;
+  transition: 0.15s;
 }
 
 .c-Checkbox__element::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: 2px;
@@ -127,30 +122,33 @@ export default {
 }
 
 .c-Checkbox__input:checked + .c-Checkbox__element::after {
-  opacity: 1
+  opacity: 1;
 }
 
 /* Disabled */
 
-.c-Checkbox[aria-disabled="true"] {
+.c-Checkbox[aria-disabled='true'] {
   cursor: not-allowed;
 }
 
-
-.c-Checkbox[aria-disabled="true"] .c-Checkbox__element {
+.c-Checkbox[aria-disabled='true'] .c-Checkbox__element {
   border-color: #757575;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
-.c-Checkbox[aria-disabled="true"] .c-Checkbox__input:checked + .c-Checkbox__element {
+.c-Checkbox[aria-disabled='true']
+  .c-Checkbox__input:checked
+  + .c-Checkbox__element {
   background-color: #757575;
 }
 
-.c-Checkbox[aria-disabled="true"] .c-Checkbox__element::after {
+.c-Checkbox[aria-disabled='true'] .c-Checkbox__element::after {
   border-color: #757575;
 }
 
-.c-Checkbox[aria-disabled="true"] .c-Checkbox__input:checked + .c-Checkbox__element::after {
-  border-color: #E0E0E0;
+.c-Checkbox[aria-disabled='true']
+  .c-Checkbox__input:checked
+  + .c-Checkbox__element::after {
+  border-color: #e0e0e0;
 }
 </style>

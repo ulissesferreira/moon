@@ -22,33 +22,37 @@ then you can import the avaliable components like so
 import { Button } from 'moon'
 ```
 
-
 ## Avaliable commands
 
 Here is a list of all avaliable npm commands.
 
 **Starting the dev environment**
 We use Vue Press to hold our component documentation and examples
+
 ```bash
 yarn dev
 ```
 
 **Building the documentation**
+
 ```bash
 yarn build
 ```
 
 **Serving the documentation**
+
 ```bash
 yarn serve
 ```
 
 **Building the library bundles**
+
 ```bash
 yarn build:library
 ```
 
 **Analyzing bundle sizes with [rollup-plugin-analyzer](https://github.com/doesdev/rollup-plugin-analyzer)**
+
 ```bash
 yarn analyze
 ```

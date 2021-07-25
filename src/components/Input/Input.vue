@@ -1,17 +1,14 @@
 <template>
-  <div
-    class="c-Input"
-    :class="inputClassObject"
-  >
+  <div class="c-Input" :class="inputClassObject">
     <input
       ref="input"
       class="c-Input__input"
       type="text"
       :value="text"
-			:name="name"
-			:required="required"
-			:disabled="disabled"
-			:aria-label="label"
+      :name="name"
+      :required="required"
+      :disabled="disabled"
+      :aria-label="label"
       :placeholder="placeholder"
       @input="text = $event.target.value"
     />
@@ -31,52 +28,51 @@ export default {
     modelValue: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     label: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     placeholder: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     name: {
       type: String,
       required: false,
-      default: undefined
+      default: undefined,
     },
     required: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
-  emits: [
-    'update:modelValue'
-  ],
+  emits: ['update:modelValue'],
   data() {
     return {
-      text: this.modelValue
+      text: this.modelValue,
     }
   },
   computed: {
     inputClassObject() {
       const hasText = this.text !== '' && this.text !== undefined
-      const hasPlaceholder = this.placeholder !== '' && this.placeholder !== undefined
+      const hasPlaceholder =
+        this.placeholder !== '' && this.placeholder !== undefined
 
       return {
         'has-value': hasText || hasPlaceholder,
-        'has-label': this.label !== '' && this.label !== undefined
+        'has-label': this.label !== '' && this.label !== undefined,
       }
-    }
+    },
   },
   watch: {
     modelValue(newModelValue) {
@@ -84,19 +80,19 @@ export default {
     },
     text(newValue) {
       this.$emit('update:modelValue', newValue)
-    }
+    },
   },
   methods: {
     onLabelClick() {
-			this.$refs.input.focus()
-    }
-  }
+      this.$refs.input.focus()
+    },
+  },
 }
 </script>
 <style scoped>
 .c-Input {
   position: relative;
-	width: 100%;
+  width: 100%;
   background: white;
 }
 
@@ -112,9 +108,7 @@ export default {
   padding: 8px;
   cursor: pointer;
   position: relative;
-  transition:
-    border 150ms ease-in-out,
-    box-shadow 150ms ease-in-out;
+  transition: border 150ms ease-in-out, box-shadow 150ms ease-in-out;
   z-index: 1;
 }
 
@@ -165,7 +159,7 @@ export default {
   cursor: not-allowed;
   border-color: #757575;
   color: #757575;
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 .c-Input__input:disabled + .c-Input__label {
