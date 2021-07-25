@@ -13,13 +13,13 @@ When you are starting a new prototype you want to be able to develop features fa
 First install the library using your prefered package manager
 
 ```bash
-yarn add moon
+yarn add @ulissesferreira/moon
 ```
 
 then you can import the avaliable components like so
 
 ```vue
-import { Button } from 'moon'
+import { Button } from '@ulissesferreira/moon'
 ```
 
 ## Avaliable commands
@@ -51,8 +51,19 @@ yarn serve
 yarn build:library
 ```
 
-**Analyzing bundle sizes with [rollup-plugin-analyzer](https://github.com/doesdev/rollup-plugin-analyzer)**
+**Analyzing bundle sizes with [rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer)**
 
 ```bash
 yarn analyze
+```
+
+**Lint all files**
+
+```bash
+yarn lint
+```
+
+**Format all files**
+```bash
+yarn format
 ```
