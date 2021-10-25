@@ -16,15 +16,15 @@ First install the library using your prefered package manager
 yarn add @ulissesferreira/moon
 ```
 
-then you can import the avaliable components like so
+then you can import the available components like so
 
 ```vue
 import { Button } from '@ulissesferreira/moon'
 ```
 
-## Avaliable commands
+## Available commands
 
-Here is a list of all avaliable npm commands.
+Here is a list of all available npm commands.
 
 **Starting the dev environment**
 We use Vue Press to hold our component documentation and examples
