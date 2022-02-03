@@ -1,0 +1,65 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: Publish Package to GitHub
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn build:library
+      # TODO: tests
+      # - run: yarn test
+
+# Reference https://github.com/aaronpowell/react-foldable/blob/main/.github/workflows/build.yml
+# https://www.aaron-powell.com/posts/2020-11-06-deploy-to-github-packages-with-github-actions/
+  package:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn build:library
+      # - run: npm version prerelease --preid=ci-$GITHUB_RUN_ID --no-git-tag-version
+      - run: yarn pack
+      - name: Upload package
+        uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: "*.tgz"
+          if-no-files-found: error
+
+# Reference https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages#example-workflow
+  publish:
+    name: "Publish to GitHub Packages"
+    needs: [package]
+    runs-on: ubuntu-latest
+    # if: ${{ github.repository_owner == 'OWNER' }} # && github.token != ''
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download package
+      uses: actions/download-artifact@v2
+      with:
+        name: package
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+        registry-url: https://npm.pkg.github.com/
+    - run: npm publish $(ls *.tgz) # using yarn fails to authenticate
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
