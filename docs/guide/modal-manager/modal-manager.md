@@ -8,10 +8,10 @@ Assuming you have to display multiple different modals with various layouts, usi
 <Modal :is-open="isFirstModalOpen" @close="isFirstModalOpen = false">
   <p>I am the first Modal</p>
 </Modal>
-<Modal :is-open="isFirstModalOpen" @close="isFirstModalOpen = false">
+<Modal :is-open="isSecondModalOpen" @close="isSecondModalOpen = false">
   <p>I am the second Modal</p>
 </Modal>
-<Modal :is-open="isFirstModalOpen" @close="isFirstModalOpen = false">
+<Modal :is-open="isThirdModalOpen" @close="isThirdModalOpen = false">
   <p>I am the third Modal</p>
 </Modal>
 
